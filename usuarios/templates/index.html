@@ -1,0 +1,16 @@
+{% block content %}
+<h1>ConCalc</h1>
+    {% if user.is_anonymous %}
+        <div class="container-login100-form-btn">
+            <script>
+                window.location.href = "{% url 'login' %}"
+            </script>
+        </div>
+
+    {% else %}
+        <div class="alert alert-primary" role="alert">
+            Seja bem-vindo(a) {{ user.get_full_name }}!
+        </div>
+        <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+    {% endif %}
+{% endblock %}
